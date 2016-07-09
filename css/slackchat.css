@@ -1,0 +1,351 @@
+/**
+ * SlackChat
+ * 
+ * @author  Mateusz Bartocha
+ * @email   contact@bestcoding.net
+ * @www     https://bestcoding.net
+ * 
+ * MIT License
+ * 
+ * Copyright (c) 2016 Mateusz Bartocha
+
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+body {
+  background-color: #FF5722; }
+
+#slackchat {
+  width: 60%;
+  height: 80%;
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.5);
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  overflow: hidden; }
+  #slackchat div, #slackchat button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; }
+  #slackchat .container {
+    width: 100%;
+    height: 100%;
+    background: #f2f2f2;
+    margin-top: -15px; }
+    #slackchat .container .header-block {
+      width: 100%;
+      height: 64px;
+      background-color: #F44336;
+      border-bottom: 3px solid #ea1c0d;
+      color: #fff; }
+      #slackchat .container .header-block h2 {
+        font-size: 20px;
+        padding: 20px;
+        font-weight: 300; }
+    #slackchat .container .content-block {
+      width: 100%;
+      height: calc(100% - 64px - 64px);
+      overflow-y: scroll;
+      padding: 30px 0; }
+      #slackchat .container .content-block .messages > .msg {
+        width: 100%;
+        clear: both;
+        display: block;
+        padding: 0px 10px; }
+        #slackchat .container .content-block .messages > .msg .content {
+          max-width: calc(90% - 32px);
+          min-width: 35%;
+          min-height: 32px;
+          margin: 0 10px;
+          padding: 8px;
+          border: 1px solid transparent;
+          border-radius: 3px;
+          box-shadow: 0px 1px 0px 0px rgba(50, 50, 50, 0.3);
+          overflow: hidden;
+          word-wrap: break-word; }
+        #slackchat .container .content-block .messages > .msg .triangle {
+          position: relative;
+          width: 0;
+          height: 0;
+          top: 10px; }
+        #slackchat .container .content-block .messages > .msg .time {
+          clear: both;
+          margin-left: 50px;
+          padding: 2px;
+          color: gray;
+          font-size: 10px;
+          opacity: 0; }
+        #slackchat .container .content-block .messages > .msg.out > .time {
+          float: right;
+          margin-right: 25px;
+          margin-bottom: 5px; }
+        #slackchat .container .content-block .messages > .msg:hover > .time {
+          opacity: 1; }
+        #slackchat .container .content-block .messages > .msg.in > .triangle {
+          margin-left: 33px;
+          border-top: 0px solid transparent;
+          border-bottom: 10px solid transparent;
+          border-right: 10px solid #F44336; }
+        #slackchat .container .content-block .messages > .msg.out > .triangle {
+          right: 11px;
+          float: right;
+          top: 0;
+          border-top: 0px solid transparent;
+          border-bottom: 10px solid transparent;
+          border-left: 10px solid #fff; }
+        #slackchat .container .content-block .messages > .msg.in > .content {
+          float: left;
+          background: #F44336;
+          color: #fff;
+          border-top-left-radius: 0; }
+        #slackchat .container .content-block .messages > .msg.in > .avatar {
+          float: left;
+          width: 32px;
+          height: 32px;
+          border: 1px solid transparent;
+          border-radius: 100%;
+          background-color: #F44336;
+          background-image: url("https://bestcoding.net/tpl/img/i.jpg");
+          background-size: 32px;
+          background-position: center center;
+          background-repeat: no-repeat;
+          color: #000; }
+        #slackchat .container .content-block .messages > .msg.out > .content {
+          float: right;
+          background: #fff;
+          border-top-right-radius: 0; }
+      #slackchat .container .content-block .loader {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%); }
+      #slackchat .container .content-block .starter {
+        display: none;
+        position: absolute;
+        width: 300px;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        text-align: center;
+        color: gray; }
+        #slackchat .container .content-block .starter .group {
+          position: relative;
+          margin-bottom: 45px; }
+        #slackchat .container .content-block .starter input {
+          font-size: 18px;
+          padding: 10px10px10px5px;
+          display: block;
+          width: 300px;
+          border: none;
+          border-bottom: 1pxsolid #757575;
+          height: 42px; }
+        #slackchat .container .content-block .starter input:focus {
+          outline: none; }
+        #slackchat .container .content-block .starter label {
+          color: #999;
+          font-size: 18px;
+          font-weight: normal;
+          position: absolute;
+          pointer-events: none;
+          left: 5px;
+          top: 10px;
+          transition: 0.2seaseall;
+          -moz-transition: 0.2seaseall;
+          -webkit-transition: 0.2seaseall; }
+        #slackchat .container .content-block .starter input:focus ~ label, #slackchat .container .content-block .starter input:valid ~ label {
+          top: -20px;
+          font-size: 14px;
+          color: #F44336; }
+        #slackchat .container .content-block .starter .bar {
+          position: relative;
+          display: block;
+          width: 300px; }
+        #slackchat .container .content-block .starter .bar:before, #slackchat .container .content-block .starter .bar:after {
+          content: '';
+          height: 2px;
+          width: 0;
+          bottom: 1px;
+          position: absolute;
+          background: #F44336;
+          transition: 0.2seaseall;
+          -moz-transition: 0.2seaseall;
+          -webkit-transition: 0.2seaseall; }
+        #slackchat .container .content-block .starter .bar:before {
+          left: 50%; }
+        #slackchat .container .content-block .starter .bar:after {
+          right: 50%; }
+        #slackchat .container .content-block .starter input:focus ~ .bar:before, #slackchat .container .content-block .starter input:focus ~ .bar:after {
+          width: 50%; }
+        #slackchat .container .content-block .starter .highlight {
+          position: absolute;
+          height: 60%;
+          width: 100px;
+          top: 25%;
+          left: 0;
+          pointer-events: none;
+          opacity: 0.5; }
+        #slackchat .container .content-block .starter input:focus ~ .highlight {
+          -webkit-animation: inputHighlighter0 0.3sease;
+          -moz-animation: inputHighlighter0 0.3sease;
+          animation: inputHighlighter0 0.3sease; }
+@-webkit-keyframesinputHighlighter {
+  #slackchat .container .content-block .starter from {
+    background: #5264AE; }
+  #slackchat .container .content-block .starter to {
+    width: 0;
+    background: transparent; } }
+@-moz-keyframesinputHighlighter {
+  #slackchat .container .content-block .starter from {
+    background: #5264AE; }
+  #slackchat .container .content-block .starter to {
+    width: 0;
+    background: transparent; } }
+@keyframesinputHighlighter {
+  #slackchat .container .content-block .starter from {
+    background: #5264AE; }
+  #slackchat .container .content-block .starter to {
+    width: 0;
+    background: transparent; } }
+        #slackchat .container .content-block .starter button.btn {
+          position: relative;
+          display: block;
+          margin: 30pxauto;
+          padding: 0;
+          overflow: hidden;
+          border-width: 0;
+          outline: none;
+          border-radius: 2px;
+          box-shadow: 1px4pxrgba 0, 0, 0, 0.6;
+          background-color: #F44336;
+          color: #ecf0f1;
+          transition: background-color 0.3s;
+          text-transform: uppercase; }
+        #slackchat .container .content-block .starter button.btn > * {
+          position: relative; }
+        #slackchat .container .content-block .starter button.btnspan {
+          display: block;
+          padding: 12px24px; }
+        #slackchat .container .content-block .starter button.btn:before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          display: block;
+          width: 0;
+          padding-top: 0;
+          border-radius: 100%;
+          background-color: rgba(236, 240, 241, 0.3);
+          -webkit-transform: translate(-50%, -50%);
+          -moz-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); }
+        #slackchat .container .content-block .starter button.btn:active:before {
+          width: 120%;
+          padding-top: 120%;
+          transition: width 0.2sease-out, padding-top 0.2sease-out; }
+    #slackchat .container .footer-block {
+      display: none;
+      width: 100%;
+      height: 64px;
+      background: #fff; }
+      #slackchat .container .footer-block textarea {
+        display: block;
+        float: left;
+        height: 45px;
+        background: #ffffff;
+        border: none;
+        width: calc(100% - 64px);
+        padding: 7px;
+        resize: none;
+        font-weight: 300;
+        -ms-overflow-style: none;
+        overflow-y: auto;
+        outline: none !important; }
+      #slackchat .container .footer-block button {
+        display: block;
+        float: right;
+        width: 48px;
+        height: 48px;
+        background: #F44336;
+        background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_send_white_48dp.png");
+        background-size: 32px 32px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        border-color: transparent;
+        border-radius: 100%;
+        margin: 7px; }
+      #slackchat .container .footer-block .msgButtons {
+        display: block;
+        float: left;
+        height: 19px;
+        width: calc(100% - 64px);
+        overflow: hidden; }
+        #slackchat .container .footer-block .msgButtons .btn {
+          width: 15px;
+          height: 15px;
+          margin: 4px;
+          background-size: 15px;
+          cursor: pointer; }
+          #slackchat .container .footer-block .msgButtons .btn.emoji {
+            background-image: url("../img/emojis/wink.png"); }
+        #slackchat .container .footer-block .msgButtons .emojisList {
+          display: none;
+          position: fixed;
+          width: 300px;
+          height: 200px;
+          background: #fff;
+          -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+          box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.5);
+          left: 5px;
+          border: 2px solid #ea1c0d;
+          border-radius: 3px;
+          overflow-y: scroll;
+          padding: 5px 0; }
+        #slackchat .container .footer-block .msgButtons .emojisList > img {
+          cursor: pointer;
+          margin: 3px; }
+    #slackchat .container a {
+      color: #fff;
+      text-decoration: none; }
+    #slackchat .container p {
+      padding: 10px; }
+    #slackchat .container img.emoji {
+      width: 20px;
+      float: left;
+      margin: 0 5px; }
+  @media (max-width: 1024px) {
+    #slackchat {
+      width: 100%;
+      height: 100%;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      -webkit-transform: translateX(0);
+      transform: translateX(0); } }
+
+/*# sourceMappingURL=slackchat.css.map */

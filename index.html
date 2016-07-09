@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>	
+
+        <meta charset="utf-8">
+
+        <title>SlackChat</title>
+
+        <meta name="author" content="Mateusz Bartocha contact@bestcoding.net">
+
+        <link href="css/slackchat.css" rel="stylesheet" type="text/css">
+
+    </head>
+
+    <body>
+
+        <div id="slackchat">
+
+            <div class="container">
+
+                <div class="header-block">
+                    <h2>Contact with support</h2>
+                </div>
+
+                <div class="content-block">
+                    <div class="loader">
+                        <img src="img/loader.gif" alt="Loading...">
+                    </div>
+
+                    <div class="starter">
+                        <p>Here you can chat with support.</p>
+                        <p>Please input your data below.</p>
+                        <p>&nbsp;</p>
+                        <div class="group">
+                            <input type="text" id="name" required>
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Your name</label>
+                        </div>
+                        <div class="group">
+                            <input type="text" id="email" required>
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Your e-mail address</label>
+                        </div>
+                        <div>
+                            <button class="btn" id="initChat" type="button"><span>Start chat</span></button>
+                        </div>
+                    </div>
+                    <div class="messages"></div>
+                </div>
+
+                <div class="footer-block">
+                    <textarea placeholder="Enter message..." id="message"></textarea>
+                    <button id="sendMsg"></button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+        <script src="js/slackchat.js"></script>
+        <script>
+            window.SLACKCHAT.init({
+                
+                // get your token: https://my.slack.com/services/new/incoming-webhook/
+                token: '.........', 
+                
+                // get your url: https://my.slack.com/services/new/incoming-webhook/
+                web_hook_url: 'https://hooks.slack.com/services/...........'
+                
+                /* you can place here more options */
+                
+            });
+        </script>
+
+    </body>
+
+</html>
