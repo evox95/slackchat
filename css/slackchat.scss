@@ -8,7 +8,7 @@
  * MIT License
  * 
  * Copyright (c) 2016 Mateusz Bartocha
-
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -212,11 +212,11 @@ body {
 
                 input{
                     font-size:18px;
-                    padding:10px10px10px5px;
+                    padding:0px 10px 0px 5px;
                     display:block;
                     width:300px;
                     border:none;
-                    border-bottom:1pxsolid#757575;
+                    border-bottom:1px solid #757575;
                     height:42px;
                 }
                 input:focus{outline:none;}
@@ -229,9 +229,9 @@ body {
                     pointer-events:none;
                     left:5px;
                     top:10px;
-                    transition:0.2seaseall;
-                    -moz-transition:0.2seaseall;
-                    -webkit-transition:0.2seaseall;
+                    transition:0.2s easeall;
+                    -moz-transition:0.2s easeall;
+                    -webkit-transition:0.2s easeall;
                 }
 
                 input:focus~label,input:valid~label{
@@ -248,9 +248,9 @@ body {
                     bottom:1px;
                     position:absolute;
                     background:$button-background;
-                    transition:0.2seaseall;
-                    -moz-transition:0.2seaseall;
-                    -webkit-transition:0.2seaseall;
+                    transition:0.2s easeall;
+                    -moz-transition:0.2s easeall;
+                    -webkit-transition:0.2s easeall;
                 }
                 .bar:before{
                     left:50%;
@@ -274,9 +274,9 @@ body {
                 }
 
                 input:focus~.highlight{
-                    -webkit-animation:inputHighlighter0.3sease;
-                    -moz-animation:inputHighlighter0.3sease;
-                    animation:inputHighlighter0.3sease;
+                    -webkit-animation:inputHighlighter 0.3s ease;
+                    -moz-animation:inputHighlighter 0.3s ease;
+                    animation:inputHighlighter 0.3s ease;
                 }
 
                 @-webkit-keyframesinputHighlighter{
@@ -296,15 +296,15 @@ body {
                     position:relative;
 
                     display:block;
-                    margin:30pxauto;
-                    padding:0;
+                    margin:30px auto;
+                    padding:15px;
 
                     overflow:hidden;
 
                     border-width:0;
                     outline:none;
                     border-radius:2px;
-                    box-shadow:01px4pxrgba(0,0,0,.6);
+                    box-shadow:0 1px 4px rgba(0,0,0,.6);
 
                     background-color:$button-background;
                     color:#ecf0f1;
@@ -320,7 +320,7 @@ body {
 
                 button.btnspan{
                     display:block;
-                    padding:12px24px;
+                    padding:12px 24px;
                 }
 
                 button.btn:before{
@@ -349,7 +349,7 @@ body {
                     width:120%;
                     padding-top:120%;
 
-                    transition:width.2sease-out,padding-top.2sease-out;
+                    transition:width.2s ease-out,padding-top.2s ease-out;
                 }
             }
 
@@ -367,7 +367,7 @@ body {
                 height: 45px;
                 background: #ffffff;
                 border: none;
-                width: calc(100% - 64px);
+                width: calc(100% - 80px);
                 padding: 7px;
                 resize: none;
                 font-weight: 300;

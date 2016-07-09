@@ -158,6 +158,11 @@ window.SLACKCHAT = {
                 },
                 success: function (resp)
                 {
+                    setTimeout(function ()
+                    {
+                        SLACKCHAT.chat.loadMessages();
+                    }, SLACKCHAT.OPTIONS.loadMessagesInterval * 1000);
+                    
                     if (SLACKCHAT.OPTIONS.debugMode)
                         console.log(resp);
 
@@ -242,11 +247,6 @@ window.SLACKCHAT = {
                         SLACKCHAT.findElem('.container > .content-block')
                                 .scrollTop(SLACKCHAT.findElem('.container > .content-block > .messages').height());
                     }
-
-                    setTimeout(function ()
-                    {
-                        SLACKCHAT.chat.loadMessages();
-                    }, SLACKCHAT.OPTIONS.loadMessagesInterval * 1000);
 
                 },
                 error: function (resp)
@@ -408,9 +408,6 @@ window.SLACKCHAT = {
          */
         SLACKCHAT.CHAT_CONTAINER.on('click', '#initChat', function ()
         {
-            if (SLACKCHAT.OPTIONS.user.name === "" || SLACKCHAT.OPTIONS.user.email === "")
-                return;
-            
             SLACKCHAT.OPTIONS.user.name = $('input#name').val();
             SLACKCHAT.OPTIONS.user.email = $('input#email').val();
             

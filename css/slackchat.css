@@ -8,7 +8,7 @@
  * MIT License
  * 
  * Copyright (c) 2016 Mateusz Bartocha
-
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -156,11 +156,11 @@ body {
           margin-bottom: 45px; }
         #slackchat .container .content-block .starter input {
           font-size: 18px;
-          padding: 10px10px10px5px;
+          padding: 0px 10px 0px 5px;
           display: block;
           width: 300px;
           border: none;
-          border-bottom: 1pxsolid #757575;
+          border-bottom: 1px solid #757575;
           height: 42px; }
         #slackchat .container .content-block .starter input:focus {
           outline: none; }
@@ -172,9 +172,9 @@ body {
           pointer-events: none;
           left: 5px;
           top: 10px;
-          transition: 0.2seaseall;
-          -moz-transition: 0.2seaseall;
-          -webkit-transition: 0.2seaseall; }
+          transition: 0.2s easeall;
+          -moz-transition: 0.2s easeall;
+          -webkit-transition: 0.2s easeall; }
         #slackchat .container .content-block .starter input:focus ~ label, #slackchat .container .content-block .starter input:valid ~ label {
           top: -20px;
           font-size: 14px;
@@ -190,9 +190,9 @@ body {
           bottom: 1px;
           position: absolute;
           background: #F44336;
-          transition: 0.2seaseall;
-          -moz-transition: 0.2seaseall;
-          -webkit-transition: 0.2seaseall; }
+          transition: 0.2s easeall;
+          -moz-transition: 0.2s easeall;
+          -webkit-transition: 0.2s easeall; }
         #slackchat .container .content-block .starter .bar:before {
           left: 50%; }
         #slackchat .container .content-block .starter .bar:after {
@@ -208,9 +208,9 @@ body {
           pointer-events: none;
           opacity: 0.5; }
         #slackchat .container .content-block .starter input:focus ~ .highlight {
-          -webkit-animation: inputHighlighter0 0.3sease;
-          -moz-animation: inputHighlighter0 0.3sease;
-          animation: inputHighlighter0 0.3sease; }
+          -webkit-animation: inputHighlighter 0.3s ease;
+          -moz-animation: inputHighlighter 0.3s ease;
+          animation: inputHighlighter 0.3s ease; }
 @-webkit-keyframesinputHighlighter {
   #slackchat .container .content-block .starter from {
     background: #5264AE; }
@@ -232,13 +232,13 @@ body {
         #slackchat .container .content-block .starter button.btn {
           position: relative;
           display: block;
-          margin: 30pxauto;
-          padding: 0;
+          margin: 30px auto;
+          padding: 15px;
           overflow: hidden;
           border-width: 0;
           outline: none;
           border-radius: 2px;
-          box-shadow: 1px4pxrgba 0, 0, 0, 0.6;
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
           background-color: #F44336;
           color: #ecf0f1;
           transition: background-color 0.3s;
@@ -247,7 +247,7 @@ body {
           position: relative; }
         #slackchat .container .content-block .starter button.btnspan {
           display: block;
-          padding: 12px24px; }
+          padding: 12px 24px; }
         #slackchat .container .content-block .starter button.btn:before {
           content: "";
           position: absolute;
@@ -266,7 +266,7 @@ body {
         #slackchat .container .content-block .starter button.btn:active:before {
           width: 120%;
           padding-top: 120%;
-          transition: width 0.2sease-out, padding-top 0.2sease-out; }
+          transition: width 0.2s ease-out, padding-top 0.2s ease-out; }
     #slackchat .container .footer-block {
       display: none;
       width: 100%;
@@ -278,7 +278,7 @@ body {
         height: 45px;
         background: #ffffff;
         border: none;
-        width: calc(100% - 64px);
+        width: calc(100% - 80px);
         padding: 7px;
         resize: none;
         font-weight: 300;
